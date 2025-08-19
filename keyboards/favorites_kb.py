@@ -3,12 +3,12 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from lexicon.lexicon import LEXICON_RU
 
 
-def create_favorites_keyboard(*args: str) -> InlineKeyboardMarkup:
+def create_favorites_keyboard(*args: int, quates: dict) -> InlineKeyboardMarkup:
     # create kb builder
     kb_builder = InlineKeyboardBuilder()
     # fill the keyboard with quate-buttons
     for button in sorted(args):
-        kb_builder.row(InlineKeyboardButton(text=button, callback_data=button))
+        kb_builder.row(InlineKeyboardButton(text=quates[button], callback_data=str(button)))
     # add into keyboard edit and cancel buttons
     kb_builder.row(
         InlineKeyboardButton(
@@ -20,14 +20,14 @@ def create_favorites_keyboard(*args: str) -> InlineKeyboardMarkup:
     return kb_builder.as_markup()
 
 
-def create_edit_keyboard(*args: str) -> InlineKeyboardMarkup:
+def create_edit_keyboard(*args: int, quates: dict) -> InlineKeyboardMarkup:
     # create kb builder
     kb_builder = InlineKeyboardBuilder()
     # fill the keyboard with quate-buttons
     for button in sorted(args):
         kb_builder.row(
             InlineKeyboardButton(
-                text=f"{LEXICON_RU["del"]} {button}", callback_data=f"{button}del"
+                text=f"{LEXICON_RU["del"]} {quates[button]}", callback_data=f"{button}del"
             )
         )
     # add into keyboard cancel button
