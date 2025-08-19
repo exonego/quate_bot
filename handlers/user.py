@@ -97,7 +97,7 @@ async def process_delete_favorite(callback: CallbackQuery, db: dict, quates: dic
             ),
         )
     else:
-        await callback.message.edit_text(text=LEXICON_RU["no-favorites"])
+        await callback.message.edit_text(text=LEXICON_RU["no_favorites"])
 
 
 # this handler will react when user click cancel button in favorites(view and edit)
