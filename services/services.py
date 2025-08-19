@@ -2,8 +2,8 @@ from random import choice
 
 
 # That function choice random quate
-def choice_quate() -> str:
-    return choice()
+def choice_quate(quates: dict) -> str:
+    return choice(list(quates.keys()))
 
 
 # That function return dict of quates
