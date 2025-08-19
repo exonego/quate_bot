@@ -8,6 +8,8 @@ LEXICON_RU = {
     "edit_favorites_button": "❌ РЕДАКТИРОВАТЬ",
     "cancel": "ОТМЕНИТЬ",
     "cancel_text": "/quate - прислать цитату",
+    "kb_quate_like": "В избранные❤️",
+    "kb_quate_send": "Прислать цитату"
 }
 
 
