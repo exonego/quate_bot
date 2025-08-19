@@ -3,5 +3,5 @@ from lexicon.quates import QUATES_RU
 
 
 # That function choice random quate
-def choice_quate():
+def choice_quate() -> str:
     return choice(QUATES_RU)
