@@ -5,6 +5,7 @@ from aiogram import Bot, Dispatcher
 
 from config.config import Config, load_config
 from database.database import init_db
+from services.services import read_quates
 from keyboards.menu_commands import set_main_menu
 from handlers.other import other_router
 from handlers.user import user_router
@@ -31,11 +32,16 @@ async def main():
     bot = Bot(token=config.bot.token)
     dp = Dispatcher()
 
+    # read quates
+    logger.info("Reading quates")
+    quates = read_quates("quates.txt")
+    logger.info("Quates read")
+
     # init "database"
     db: dict = init_db()
 
-    # save "database" into workflow_data
-    dp.workflow_data.update(db=db)
+    # save "database" and quates into workflow_data
+    dp.workflow_data.update(db=db, quates=quates)
 
     # setting bot-commands main menu
     await set_main_menu(bot)
